@@ -1,13 +1,17 @@
 aluno = dict()
-nome = str(input('Nome:'))
-media = float(input(f'Média de {nome}: '))
-print('-=' * 30)
-aluno['nome'] = nome
-aluno['média'] = media
-if media >= 7:
+aluno['nome'] = str(input('Nome: '))
+aluno['média'] = float(input(f'Média de {aluno["nome"]}: '))
+
+# Lógica de situação com recuperação
+if aluno['média'] >= 7.0:
     aluno['situação'] = 'Aprovado'
+elif 5.0 <= aluno['média'] < 7.0:
+    aluno['situação'] = 'Recuperação'
 else:
     aluno['situação'] = 'Reprovado'
 
-for k, v in aluno.items():
-    print(f'{k}: {v}')
+print('-=' * 20)
+
+# Exibição formatada
+for chave, valor in aluno.items():
+    print(f'  - {chave.capitalize()} é igual a {valor}')
